@@ -1,0 +1,71 @@
+﻿<Page x:Class="MAP_Tema2_Checkers.Views.GamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:MAP_Tema2_Checkers.Views"
+      xmlns:vm="clr-namespace:MAP_Tema2_Checkers.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="GamePage" Background="#2c3e50">
+
+    <Page.DataContext>
+        <vm:GamePageVM/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+            <Image Source="{Binding GameVM.Game.Player.PieceImage}" Width="65" Height="65" Stretch="Uniform"/>
+            <Button Content="About" Style="{DynamicResource MenuButton}" Command="{Binding AboutPageCommand}"/>
+            <Button Content="New Game" Style="{DynamicResource MenuButton}" Command="{Binding NewGameCommand}" CommandParameter="{Binding GameVM.Game}"/>
+            <Button Content="Save" Style="{DynamicResource MenuButton}" Command="{Binding SaveCommand}" CommandParameter="{Binding GameVM.Game}"/>
+            <Button Content="Load" Style="{DynamicResource MenuButton}" Command="{Binding LoadCommand}" CommandParameter="{Binding GameVM.Game}"/>
+            <Button Content="Exit" Style="{DynamicResource MenuButton}" Command="{Binding CloseWindowCommand}"/>
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="10">
+                <CheckBox Margin="0,5,10,5" IsChecked="{Binding GameVM.Game.MultipleJump}" Command="{Binding MultipleJumpCommand}">
+                    <CheckBox.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2" />
+                    </CheckBox.LayoutTransform>
+                </CheckBox>
+                <TextBlock Text="Multiple jump" FontSize="28" Foreground="LightGray"/>
+            </StackPanel>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding GameVM.Game.RedPieces, StringFormat=Red pieces: {0}}" FontSize="28" Foreground="LightGray"/>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding GameVM.Game.BlackPieces, StringFormat=Black pieces: {0}}" FontSize="28" Foreground="LightGray"/>
+        </StackPanel>
+        <Grid Grid.Column="1" Margin="20" Background="#2c4e3a">
+            <Border BorderThickness="10" BorderBrush="#333333" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ItemsControl x:Name="BoardControl" ItemsSource="{Binding GameVM.GameBoard}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <ItemsControl ItemsSource="{Binding}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Button Background="{Binding CellObj.TileColor}" Command="{Binding MoveCommand}" CommandParameter="{Binding CellObj}"  Width="80" Height="80">
+                                            <Grid>
+                                                <Image Source="{Binding CellObj.PieceSet.PieceImage}" Margin="3"/>
+                                                <Border BorderThickness="2" BorderBrush="#77ff00" Visibility="{Binding CellObj.Selected, Converter={StaticResource BoolToVis}}"/>
+                                            </Grid>
+                                        </Button>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

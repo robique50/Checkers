@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Game redPieces="6" blackPieces="1" IsRunning="True" MultipleJump="True" Color="True">
+  <Board>
+    <Piece Row="0" Column="7" Color="True" King="True" />
+    <Piece Row="2" Column="5" Color="True" King="False" />
+    <Piece Row="5" Column="0" Color="True" King="False" />
+    <Piece Row="6" Column="5" Color="False" King="True" />
+    <Piece Row="7" Column="2" Color="True" King="False" />
+    <Piece Row="7" Column="4" Color="True" King="False" />
+    <Piece Row="7" Column="6" Color="True" King="False" />
+  </Board>
+</Game>

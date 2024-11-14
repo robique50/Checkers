@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Game redPieces="11" blackPieces="12" IsRunning="True" MultipleJump="False" Color="True">
+  <Board>
+    <Piece Row="0" Column="1" Color="False" King="False" />
+    <Piece Row="0" Column="3" Color="False" King="False" />
+    <Piece Row="0" Column="5" Color="False" King="False" />
+    <Piece Row="0" Column="7" Color="False" King="False" />
+    <Piece Row="1" Column="0" Color="False" King="False" />
+    <Piece Row="1" Column="2" Color="False" King="False" />
+    <Piece Row="1" Column="4" Color="False" King="False" />
+    <Piece Row="1" Column="6" Color="False" King="False" />
+    <Piece Row="2" Column="1" Color="False" King="False" />
+    <Piece Row="2" Column="7" Color="False" King="False" />
+    <Piece Row="3" Column="2" Color="False" King="False" />
+    <Piece Row="4" Column="3" Color="False" King="False" />
+    <Piece Row="5" Column="0" Color="True" King="False" />
+    <Piece Row="5" Column="4" Color="True" King="False" />
+    <Piece Row="5" Column="6" Color="True" King="False" />
+    <Piece Row="6" Column="1" Color="True" King="False" />
+    <Piece Row="6" Column="3" Color="True" King="False" />
+    <Piece Row="6" Column="5" Color="True" King="False" />
+    <Piece Row="6" Column="7" Color="True" King="False" />
+    <Piece Row="7" Column="0" Color="True" King="False" />
+    <Piece Row="7" Column="2" Color="True" King="False" />
+    <Piece Row="7" Column="4" Color="True" King="False" />
+    <Piece Row="7" Column="6" Color="True" King="False" />
+  </Board>
+</Game>
